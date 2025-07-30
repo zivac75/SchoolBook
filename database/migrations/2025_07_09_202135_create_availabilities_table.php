@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('availabilities', function (Blueprint $table) {
             $table->id();
             $table->foreignId('service_id')->constrained('services')->onDelete('cascade')->comment('Service concerné');
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade')->comment('API propriétaire du créneau');
             $table->dateTime('start_datetime')->comment('Début de la disponibilité');
             $table->dateTime('end_datetime')->comment('Fin de la disponibilité');
             $table->unsignedInteger('capacity')->comment('Capacité maximale');

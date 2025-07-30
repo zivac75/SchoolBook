@@ -22,7 +22,6 @@ class AvailabilityFactory extends Factory
             'service_id' => \App\Models\Service::factory(),
             'start_datetime' => $start,
             'end_datetime' => $end,
-            'capacity' => fake()->numberBetween(1, 10),
         ];
     }
 }

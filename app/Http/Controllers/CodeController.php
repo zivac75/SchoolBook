@@ -44,6 +44,7 @@ class CodeController extends Controller
         Notification::route('mail', $request->email)
             ->notify(new CodeInscriptionNotification($code->code));
 
+
         return redirect()->route('codes.index')
             ->with('success', "Code d'inscription généré pour {$request->name} ({$request->email})");
     }

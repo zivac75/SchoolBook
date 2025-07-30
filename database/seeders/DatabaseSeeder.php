@@ -12,14 +12,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            AdminSeeder::class,
+            UserSeeder::class,
             ServiceSeeder::class,
-        ]);
-        // Création des utilisateurs
-        \App\Models\User::factory(20)->create();
-        $this->call([
             AvailabilitySeeder::class,
             ReservationSeeder::class,
             NotificationSeeder::class,
+            AvailabilityWeekSeeder::class, // Ajout du seeder de créneaux semaine
         ]);
     }
 }

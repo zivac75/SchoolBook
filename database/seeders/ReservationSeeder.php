@@ -16,11 +16,11 @@ class ReservationSeeder extends Seeder
      */
     public function run(): void
     {
-        // Pour chaque utilisateur, créer quelques réservations aléatoires
-        $users = User::all();
+        // On ne fait réserver que les étudiants
+        $etudiants = \App\Models\User::where('role', 'etudiant')->get();
         $availabilities = Availability::all();
-        foreach ($users as $user) {
-            $userAvailabilities = $availabilities->random(rand(2, 4));
+        foreach ($etudiants as $user) {
+            $userAvailabilities = $availabilities->random(min(2, $availabilities->count()));
             foreach ($userAvailabilities as $availability) {
                 Reservation::create([
                     'user_id' => $user->id,

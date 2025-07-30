@@ -39,7 +39,16 @@ class Kernel extends HttpKernel
      *
      * @var array<string, class-string|string>
      */
+    protected $routeMiddleware = [
+        'role' => \App\Http\Middleware\RoleMiddleware::class,
+    ];
+
+    /*
+     * Middleware alias for Laravel 11+
+     */
     protected $middlewareAliases = [
+        // For Laravel 11+, aliases
+
         'auth' => \App\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,

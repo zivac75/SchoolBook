@@ -10,6 +10,12 @@ class Notification extends Model
     /** @use HasFactory<\Database\Factories\NotificationFactory> */
     use HasFactory;
 
+    protected $fillable = [
+        'reservation_id',
+        'type',
+        'sent_at',
+    ];
+
     /**
      * La réservation associée à cette notification.
      */

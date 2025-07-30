@@ -11,6 +11,18 @@ class Reservation extends Model
     use HasFactory;
 
     /**
+     * Attributs modifiables en masse.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id',
+        'service_id',
+        'availability_id',
+        'status',
+    ];
+
+    /**
      * L'utilisateur ayant effectué la réservation.
      */
     public function user()

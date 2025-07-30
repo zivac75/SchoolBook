@@ -57,6 +57,14 @@ class User extends Authenticatable
     }
 
     /**
+     * Les créneaux (availabilities) de cet API.
+     */
+    public function availabilities()
+    {
+        return $this->hasMany(\App\Models\Availability::class, 'user_id');
+    }
+
+    /**
      * Vérifie si l'utilisateur est admin.
      */
     public function isAdmin()
